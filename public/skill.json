@@ -1,0 +1,74 @@
+[
+  {
+    "skillId": 1,
+    "skillName": "Frontend Web Development (React)",
+    "providerName": "Nafisa Rahman",
+    "providerEmail": "nafisa@skillswap.com",
+    "price": 25,
+    "rating": 4.9,
+    "slotsAvailable": 4,
+    "description": "Learn React from basics to building real-world projects with hooks and routing.",
+    "image": "https://i.ibb.co.com/d0HHyPrz/domenico-loia-h-GV2-Tf-Oh0ns-unsplash.jpg",
+    "category": "Programming"
+  },
+  {
+    "skillId": 2,
+    "skillName": "Python for Beginners",
+    "providerName": "Imran Hossain",
+    "providerEmail": "imran@skillswap.com",
+    "price": 15,
+    "rating": 4.7,
+    "slotsAvailable": 6,
+    "description": "Start Python from scratch including variables, loops, and mini projects.",
+    "image": "https://i.ibb.co.com/FLCKn6f0/douglas-lopes-ehy-V-XOZ4i-A-unsplash.jpg",
+    "category": "Programming"
+  },
+  {
+    "skillId": 3,
+    "skillName": "UI/UX Design Basics",
+    "providerName": "Sadia Islam",
+    "providerEmail": "sadia@skillswap.com",
+    "price": 20,
+    "rating": 4.8,
+    "slotsAvailable": 5,
+    "description": "Learn wireframing, Figma, and modern UI/UX principles.",
+    "image": "https://i.ibb.co.com/cSKVgm88/ux-indonesia-pqz-Rf-Bhd9r0-unsplash.jpg",
+    "category": "Design"
+  },
+  {
+    "skillId": 4,
+    "skillName": "Digital Marketing Strategy",
+    "providerName": "Tanvir Ahmed",
+    "providerEmail": "tanvir@skillswap.com",
+    "price": 18,
+    "rating": 4.6,
+    "slotsAvailable": 3,
+    "description": "SEO, social media marketing, and content strategy for beginners.",
+    "image": "https://i.ibb.co.com/hJdtJhh1/still-life-graphic-design-day.jpg",
+    "category": "Marketing"
+  },
+  {
+    "skillId": 5,
+    "skillName": "Spoken English Practice",
+    "providerName": "Ayesha Khan",
+    "providerEmail": "ayesha@skillswap.com",
+    "price": 10,
+    "rating": 4.5,
+    "slotsAvailable": 8,
+    "description": "Improve fluency and confidence in everyday English conversation.",
+    "image": "https://i.ibb.co.com/Vp5zpkJR/turned-gray-laptop-computer.jpg",
+    "category": "Language"
+  },
+  {
+    "skillId": 6,
+    "skillName": "Graphic Design with Canva",
+    "providerName": "Rafiul Karim",
+    "providerEmail": "rafiul@skillswap.com",
+    "price": 12,
+    "rating": 4.7,
+    "slotsAvailable": 7,
+    "description": "Learn to design posters, social media posts, and branding using Canva.",
+    "image": "https://i.ibb.co.com/hJdtJhh1/still-life-graphic-design-day.jpg",
+    "category": "Design"
+  }
+]
