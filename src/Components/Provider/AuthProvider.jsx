@@ -1,7 +1,7 @@
  import React, { useEffect, useState } from 'react';
 import { createContext } from 'react';
-import app from '../firebase/firebase.config';
 import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
+import { app } from '../../../firebase.config';
 export const AuthContext = createContext();
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
@@ -24,7 +24,29 @@ const AuthProvider = ({children}) => {
         return signOut(auth)
     }
 
-  
+    const updateUser = (updateData)=>{
+        return updateProfile(auth.currentUser,updateData)
+    }
+
+    const signInWithPopupFunc =()=>{
+        setLoading(true);
+        return signInWithPopup(auth,googleProvider)
+    }
+
+    const sendPasswordResetEmailFunc =(email)=>{
+        setLoading(true);
+        return sendPasswordResetEmail(auth,email);
+    }
+
+    useEffect(()=>{
+        const unsubscribe = onAuthStateChanged(auth,(createUser)=>{
+            setUser(createUser);
+            setLoading(false);
+        });
+        return()=>{
+            unsubscribe();
+        }
+    },[]);
 
     const authData = {
         createUser,
@@ -33,7 +55,9 @@ const AuthProvider = ({children}) => {
         user,
         setUser,
         loading,
-       
+        updateUser,
+        signInWithPopupFunc,
+        sendPasswordResetEmailFunc
     };
     
     return <AuthContext.Provider value={authData}>{children}</AuthContext.Provider>

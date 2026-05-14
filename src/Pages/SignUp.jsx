@@ -1,19 +1,54 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router';
 import { FcGoogle } from 'react-icons/fc';
 import { FaEye } from 'react-icons/fa';
 import { IoEyeOff } from 'react-icons/io5';
+import { AuthContext } from '../Components/Provider/AuthProvider';
 
 const SignUp = () => {
  
     const [show,setShow] = useState(false);
       const [error, setError] = useState('');
+const {createUser,setUser}= useContext(AuthContext);
+ const handleSignUp = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const photoURL = form.photoURL.value;
+        const password = form.password.value;
 
+    // Password Validation
+    if (!/[A-Z]/.test(password)) {
+      setError('Password must contain at least one uppercase letter');
+      return;
+    }
 
+    if (!/[a-z]/.test(password)) {
+      setError('Password must contain at least one lowercase letter');
+      return;
+    }
+
+    if (password.length < 6) {
+      setError('Password must be at least 6 characters long');
+      return;
+    }
+        // console.log({name,email,photoURL,password})
+        createUser(email,password)
+        .then(result=>{
+            const createdUser = result.user;
+           
+                setUser(createdUser);
+            })
+           
+        .catch(error=>{
+            setError(error.message);
+        })
+    }
     return (
         <div className=' my-8 flex justify-center items-center'>
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-                <form  className="card-body relative">
+                <form onSubmit={handleSignUp} className="card-body relative">
                     <fieldset className="fieldset">
                         <h2 className='mt-4 font-bold text-2xl text-center animate__animated animate__bounce'>Sign Up </h2>
 
