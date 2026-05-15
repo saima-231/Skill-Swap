@@ -1,16 +1,82 @@
-# React + Vite
+# SkillSwap – A Local Skill Exchange Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🌐 Live Website
+[Live Link Here](https://skill-exchange-f69fd.web.app/)
 
-Currently, two official plugins are available:
+## 📂 GitHub Repository
+[GitHub Repo Here](https://github.com/saima-231/Skill-Swap)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 📌 Project Overview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+SkillSwap is a local skill exchange platform where users can explore and connect with skill providers in their community. Users can browse different skills such as guitar lessons, spoken English practice, coding mentorship, yoga training, and more.
 
-## Expanding the ESLint configuration
+The platform allows users to:
+- Discover popular skills
+- View detailed skill information
+- Book learning sessions
+- Login/Register securely using Firebase Authentication
+- Update their profile information
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## ✨ Main Features
+
+### 🔐 Authentication System
+- Email & Password Login/Register
+- Google Login Authentication
+- Password Validation
+- Forget Password Functionality
+- Password Toggle Eye Button
+- Protected Routes
+
+### 🏠 Home Page
+- Hero Slider using Swiper.js
+- Popular Skills Section
+- Success Stories Section
+- Top Rated Providers Section
+- How It Works Section
+
+### 👤 User Features
+- View Profile Information
+- Update Profile Name & Image
+- Book Skill Sessions
+- Toast Notifications
+
+### 🎨 UI & UX
+- Fully Responsive Design
+- Modern Minimal UI
+- Smooth Hover Effects & Animations
+- SPA Routing without Reload Errors
+
+---
+
+## 🛠️ Technologies Used
+
+### Frontend
+- React
+- React Router
+- Tailwind CSS
+- DaisyUI
+
+### Authentication
+- Firebase Authentication
+
+### Packages Used
+- Swiper.js
+- React Hot Toast
+- Animate.css
+- React Icons
+
+---
+
+## 📦 NPM Packages
+
+```bash
+npm install react-router
+npm install firebase
+npm install react-hot-toast
+npm install swiper
+npm install animate.css
+npm install react-icons
