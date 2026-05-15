@@ -60,7 +60,8 @@ const Navbar = () => {
 
         <div className="navbar-end gap-1 px-3">
           {
-            loading ? (<Loading></Loading>) : (
+            loading ? (<span className="loading loading-dots loading-xs"></span>
+) : (
               <div className='login-btn flex items-center gap-1'>
 
                 <img
