@@ -5,6 +5,8 @@ import SignUp from "../Pages/SignUp";
 import AuthLayout from "../layout/AuthLayout";
 import Login from "../Pages/Login";
 import PopularSkills from "../Components/PopularSkills";
+import PrivateRouter from "../Components/Provider/PrivateRouter";
+import SkillDetails from "../Components/SkillDetails";
 
 export const router = createBrowserRouter([
     {
@@ -15,9 +17,17 @@ export const router = createBrowserRouter([
                 path: '/',
                 element: <Home></Home>
             },
-             {
+            {
                 path: '/popular-skills',
                 element: <PopularSkills></PopularSkills>,
+            }, {
+                path: '/skill/:id',
+                element: <PrivateRouter>
+                    <SkillDetails></SkillDetails>
+                </PrivateRouter>
+                ,
+                loader: () => fetch('/skill.json'),
+
             }
 
         ]
