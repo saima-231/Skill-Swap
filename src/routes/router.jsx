@@ -1,12 +1,16 @@
 import { createBrowserRouter } from "react-router";
 import MainLayout from "../layout/MainLayout";
 import Home from "../Pages/Home";
-import SignUp from "../Pages/SignUp";
+import PopularSkills from "../Components/PopularSkills";
+import SkillDetails from "../Components/SkillDetails";
 import AuthLayout from "../layout/AuthLayout";
 import Login from "../Pages/Login";
-import PopularSkills from "../Components/PopularSkills";
+import SignUp from "../Pages/SignUp";
 import PrivateRouter from "../Components/Provider/PrivateRouter";
-import SkillDetails from "../Components/SkillDetails";
+import MyProfile from "../Pages/MyProfile";
+import UpdateProfile from "../Pages/UpdateProfile";
+import ForgetPassword from "../Pages/ForgetPassword";
+import ErrorPage from "../Pages/ErrorPage";
 
 export const router = createBrowserRouter([
     {
@@ -16,6 +20,19 @@ export const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>
+            }, {
+                path: '/my-profile',
+                element: <PrivateRouter>
+                    <MyProfile></MyProfile>
+                </PrivateRouter>
+
+            },
+            {
+                path: '/update-profile',
+                element: <PrivateRouter>
+                    <UpdateProfile></UpdateProfile>
+                </PrivateRouter>
+
             },
             {
                 path: '/popular-skills',
@@ -31,8 +48,7 @@ export const router = createBrowserRouter([
             }
 
         ]
-    },
-    {
+    }, {
         path: '/auth',
         element: <AuthLayout></AuthLayout>,
         children: [
@@ -46,8 +62,12 @@ export const router = createBrowserRouter([
             }
         ]
     },{
+            path: '/forget-password',
+            element: <ForgetPassword></ForgetPassword>
+            
+    },{
             path: '/*',
-            element: <p>error</p>
+            element: <ErrorPage></ErrorPage>
             
     }
 ])
