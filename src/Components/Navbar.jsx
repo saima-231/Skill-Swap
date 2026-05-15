@@ -2,9 +2,25 @@ import React, { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router';
 import logo from '../assets/logo.png';
 import userIcon from '../assets/user.png';
-
+import { AuthContext } from './Provider/AuthProvider';
+import { toast } from 'react-toastify';
+import Loading from './Loading';
+// import { ClockLoader } from 'react-spinners';
 const Navbar = () => {
- 
+  const { user, logOut, loading } = useContext(AuthContext)
+  const handleLogOut = () => {
+    toast('Logout successfully');
+    logOut()
+      .then(() => {
+
+      })
+      .catch(error => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        toast(errorMessage);
+      })
+
+  }
   const links = (
     <>
       <li>
@@ -43,15 +59,20 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-end gap-1 px-3">
-         
+          {
+            loading ? (<Loading></Loading>) : (
               <div className='login-btn flex items-center gap-1'>
 
                 <img
                   className='w-7 md:w-[40px] h-7 md:w-[40px]  rounded-full'
                   // src={`${user ?user.photoURL:userIcon}`} 
-                  src={userIcon}
+                  src={user?.photoURL || userIcon}
                   alt="User"
                 />
+
+                {
+                  !user ? (
+                    <>
                       <Link
                         to='/auth/login'
                         className='btn border-0 bg-sky-700 text-white px-3 md:px-6 text-xs md:text-base'
@@ -65,16 +86,23 @@ const Navbar = () => {
                       >
                         Sign Up
                       </Link>
-                 
+                    </>
+                  ) : (
                     <button
-                    //   onClick={handleLogOut}
+                      onClick={handleLogOut}
                       className='btn border-0 bg-red-600 text-white px-6'
                     >
                       Logout
                     </button>
 
+                  )
+                }
 
               </div>
+
+            )
+
+          }
         </div>
       </div>
     </div>

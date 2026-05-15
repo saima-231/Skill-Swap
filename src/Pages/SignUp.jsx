@@ -1,16 +1,17 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
+import { AuthContext } from '../Components/Provider/AuthProvider';
 import { FcGoogle } from 'react-icons/fc';
 import { FaEye } from 'react-icons/fa';
 import { IoEyeOff } from 'react-icons/io5';
-import { AuthContext } from '../Components/Provider/AuthProvider';
 
 const SignUp = () => {
- 
-    const [show,setShow] = useState(false);
+    const {createUser,setUser,updateUser,signInWithPopupFunc} = useContext(AuthContext);
       const [error, setError] = useState('');
-const {createUser,setUser}= useContext(AuthContext);
- const handleSignUp = (e) => {
+    const [show,setShow] = useState(false);
+    const navigate = useNavigate();
+
+    const handleSignUp = (e) => {
         e.preventDefault();
         const form = e.target;
         const name = form.name.value;
@@ -37,14 +38,36 @@ const {createUser,setUser}= useContext(AuthContext);
         createUser(email,password)
         .then(result=>{
             const createdUser = result.user;
-           
+            updateUser({displayName:name,photoURL:photoURL})
+            .then(()=>{
+                 setUser({...createdUser,displayName : name, photoURL:photoURL});
+      navigate('/')
+    //   console.log(createUser)
+            })
+            .catch((error)=>{
                 setUser(createdUser);
             })
            
+        })
         .catch(error=>{
             setError(error.message);
         })
     }
+
+    const handleGoogleSignIn =()=>{
+        signInWithPopupFunc()
+        .then((result)=>{
+            const loggedUser = result.user;
+                  navigate('/')
+                //   console.log(loggedUser.email)
+
+        })
+        .catch((error)=>{
+            // console.log(error)
+        })
+    }
+
+
     return (
         <div className=' my-8 flex justify-center items-center'>
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
@@ -79,7 +102,7 @@ const {createUser,setUser}= useContext(AuthContext);
                         {error && <p className='text-red-700'>{error}</p>}
                         {/* <div><a className="link link-hover">Forgot password?</a></div> */}
                         <button className="btn btn-neutral mt-4" type="submit">Sign Up</button>
-                         <button className="btn btn-neutral mt-4" type="button" ><FcGoogle />Login with Google</button>
+                         <button className="btn btn-neutral mt-4" type="button" onClick={handleGoogleSignIn}><FcGoogle />Login with Google</button>
                         <p className="text-center text-sm text-gray-500">
                             Already have an account? <Link  className="link link-hover" to="/auth/login">Login</Link>
                         </p>
