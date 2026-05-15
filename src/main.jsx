@@ -12,6 +12,7 @@ createRoot(document.getElementById('root')).render(
     <AuthProvider>
   <Suspense fallback={<Loading></Loading>}>
    <RouterProvider router={router} />
-</Suspense>    </AuthProvider>
+</Suspense>   
+ </AuthProvider>
   </StrictMode>,
 )
