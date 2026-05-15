@@ -2,6 +2,7 @@ import React, { useContext, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../Components/Provider/AuthProvider';
 import { FcGoogle } from 'react-icons/fc';
+import { toast } from 'react-toastify';
 import { FaEye } from 'react-icons/fa';
 import { IoEyeOff } from 'react-icons/io5';
 
@@ -9,6 +10,8 @@ const Login = () => {
   const {
     signIn,
     signInWithPopupFunc,
+    setLoading,
+    loading
   }
     = useContext(AuthContext);
 

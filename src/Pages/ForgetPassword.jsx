@@ -61,12 +61,6 @@ const ForgetPassword = () => {
                 >
                     Reset Password
                 </button>
-                <Link
-                    to={'/'}
-                    className="btn btn-primary w-full"
-                >
-                    Go back
-                </Link>
             </form>
 
         </div>

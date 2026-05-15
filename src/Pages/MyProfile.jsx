@@ -37,6 +37,9 @@ const MyProfile = () => {
         <Link to={'/update-profile'} className="btn mt-8 w-full bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-3 rounded-xl transition duration-300 shadow-md hover:shadow-xl">
           Update Profile
         </Link>
+          <Link to={'/'} className="btn btn-primary mt-4">
+                           Go Back Home
+                          </Link>
       </div>
     </div>
     );
